@@ -11,6 +11,7 @@ namespace Business.Concrete
     public class ProductManager : IProductService
     {
         InMemoryProductDal _productDal;
+        private EfProductDal efProductDal;
 
         public ProductManager(InMemoryProductDal productDal)
         {
@@ -19,7 +20,12 @@ namespace Business.Concrete
 
         public ProductManager(EfProductDal efProductDal)
         {
+            this.efProductDal = efProductDal;
         }
+
+        //public ProductManager(EfProductDal efProductDal)
+        //{
+        //}
 
         public List<Product> GetAllByCategoryId()
         {
